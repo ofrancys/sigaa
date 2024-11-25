@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Email</th>
+            <th scope="col">Matricula</th>
+            <th scope="col">Sexo</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for aluno in alunos %}
+        <tr>
+            <td>{{ aluno.nome }}</td>
+            <td>{{ aluno.email }}</td>
+            <td>{{ aluno.matricula }}</td>
+            <td>{{ aluno.get_sexo_display }}</td>
+            <td> <a class="btn btn-warning btn-sm" href="{% url 'sigaaa:edit_alunos' aluno.id %}" role="button">
+                    <span class="text-light text-center">
+                    Editar
+                    </span>
+                </a>
+            </td>
+            <td><a class="btn btn-danger btn-sm" href="{% url 'sigaaa:delete_alunos' aluno.id %}" role="button">
+                    <span class="text-light text-center">
+                    Deletar
+                    </span>
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">Nenhum aluno encontrado.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'sigaaa:add_alunos' %}" type="button" class="btn btn-primary">Adicionar</a>
+
+{% endblock %}

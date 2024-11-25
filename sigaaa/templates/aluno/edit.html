@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Atualizar informações do Aluno</h1>
+    <div class="col-12">
+        <form action="{% url 'sigaaa:edit_alunos' aluno_id %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Atualizar</button>
+            <button type="reset" class="btn btn-danger">Resetar</button>
+        </form>
+    </div>
+
+{% endblock %}

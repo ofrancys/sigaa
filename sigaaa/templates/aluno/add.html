@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Criar Aluno</h1>
+    <div class="col-12">
+        <form action="{% url 'sigaaa:add_alunos' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+
+
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="reset" class="btn btn-danger">Resetar</button>
+        </form>
+    </div>
+
+{% endblock %}

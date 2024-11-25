@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nome da Disciplina</th>
+            <th scope="col">Nome Professor</th>
+            <th scope="col">Carga Horária</th>
+            <th scope="col">Ano</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for disciplina in disciplinas %}
+        <tr>
+            <td>{{ disciplina.nome }}</td>
+            <td>{{ disciplina.nome_professor }}</td>
+            <td>{{ disciplina.carga_horaria }}</td>
+            <td>{{ disciplina.ano }}</td>
+            <td> <a class="btn btn-warning btn-sm" role="button" href="{% url 'sigaaa:edit_disciplinas' disciplina.id %}">
+                    <span class="text-light text-center">
+                    Editar
+                    </span>
+                </a>
+            </td>
+            <td><a class="btn btn-danger btn-sm" role="button" href="{% url 'sigaaa:delete_disciplinas' disciplina.id %}">
+                    <span class="text-light text-center">
+                    Deletar
+                    </span>
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">Nenhuma disciplina encontrada.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'sigaaa:add_disciplinas' %}" type="button" class="btn btn-primary">Adicionar</a>
+
+{% endblock %}
