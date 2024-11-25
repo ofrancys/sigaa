@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Atualizar informações do Aluno</h1>
+<h1>Atualizar informações da Disciplina</h1>
     <div class="col-12">
         <form action="{% url 'sigaaa:edit_disciplinas' disciplina_id %}" method="post">
             {% csrf_token %}
