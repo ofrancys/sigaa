@@ -1,3 +1,6 @@
+from django import forms
+from sigaaa.models import Nota
+
 class NotaForm(forms.ModelForm):
     class Meta:
         model = Nota
