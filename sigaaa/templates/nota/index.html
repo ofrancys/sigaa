@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Aluno</th>
+            <th scope="col">Disciplina</th>
+            <th scope="col">Nota</th>
+            <th scope="col">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for nota in notas %}
+        <tr>
+            <td>{{ nota.aluno.nome }}</td>
+            <td>{{ nota.disciplina.nome }}</td>
+            <td>{{ nota.nota1 }}</td>
+            <td> 
+                <a class="btn btn-warning btn-sm" role="button" href="{% url 'sigaaa:edit_notas' nota.id %}">
+                    <span class="text-light text-center">Editar</span>
+                </a>
+                <a class="btn btn-danger btn-sm" role="button" href="{% url 'sigaaa:delete_notas' nota.id %}">
+                    <span class="text-light text-center">Deletar</span>
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">Nenhuma nota encontrada.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'sigaaa:add_notas' %}" type="button" class="btn btn-primary">Adicionar</a>
+{% endblock %}

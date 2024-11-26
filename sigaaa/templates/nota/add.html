@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Criar Nota</h1>
+    <div class="col-12">
+        <form action="{% url 'sigaaa:add_notas' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="reset" class="btn btn-danger">Resetar</button>
+        </form>
+    </div>
+{% endblock %}

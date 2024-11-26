@@ -16,5 +16,10 @@ urlpatterns = [
     path('edit_disciplinas/<int:disciplina_id>', view_disciplinas.edit_disciplinas, name='edit_disciplinas'),
     path('delete_disciplinas/<int:disciplina_id>', view_disciplinas.delete_disciplinas, name='delete_disciplinas'),
 
+    path('notas/', view_notas.notas, name='notas'),
+    path('add_notas', view_notas.add_notas, name='add_notas'),
+    path('edit_notas/<int:nota_id>', view_notas.edit_notas, name='edit_notas'),
+    path('delete_notas/<int:nota_id>', view_notas.delete_notas, name='delete_notas'),
+
     #path('notas/', notas.index, name='nota_lista'),
 ]
